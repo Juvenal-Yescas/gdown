@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	log "github.com/sirupsen/logrus"
 	"github.com/urfave/cli/v2"
 	"os"
@@ -12,6 +13,8 @@ func init() {
 	log.SetLevel(log.DebugLevel)
 }
 
+const Version = "0.1.0"
+
 func main() {
 
 	cli.VersionFlag = &cli.BoolFlag{
@@ -21,7 +24,7 @@ func main() {
 
 	app := &cli.App{
 		Name:    "gdown",
-		Version: "v0.1.0",
+		Version: Version,
 		Usage:   "Download files directly from googledrive",
 
 		Flags: []cli.Flag{
@@ -47,4 +50,5 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
+	fmt.Println("gdown --help")
 }
