@@ -4,13 +4,13 @@ import (
 	"fmt"
 	log "github.com/sirupsen/logrus"
 	"github.com/urfave/cli/v2"
+	"io/ioutil"
 	"os"
-	// "io/ioutil"
 )
 
 func init() {
-	// log.SetOutput(ioutil.Discard)
-	log.SetLevel(log.DebugLevel)
+	log.SetOutput(ioutil.Discard)
+	// log.SetLevel(log.DebugLevel)
 }
 
 const Version = "0.1.0"
