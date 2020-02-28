@@ -34,16 +34,16 @@ jobs:
 
       - name: Building
         run: |
-          GOOS=darwin GOARCH=amd64 go build -v -o gdown cmd/gdown/main.go
+          GOOS=darwin GOARCH=amd64 go build -v -o gdown ./cmd/gdown/
           zip --junk-paths gdown_${{ steps.get_version.outputs.VERSION }}_macos.zip gdown
           
-          GOOS=windows GOARCH=386 go build -v -o gdown.exe cmd/gdown/main.go
+          GOOS=windows GOARCH=386 go build -v -o gdown.exe ./cmd/gdown/
           zip --junk-paths gdown_${{ steps.get_version.outputs.VERSION }}_windows-x86.zip gdown.exe
 
-          GOOS=windows GOARCH=amd64 go build -v -o gdown.exe cmd/gdown/main.go
+          GOOS=windows GOARCH=amd64 go build -v -o gdown.exe ./cmd/gdown/
           zip --junk-paths gdown_${{ steps.get_version.outputs.VERSION }}_windows-x64.zip gdown.exe
 
-          GOOS=linux GOARCH=amd64 go build -v -o gdown cmd/gdown/main.go
+          GOOS=linux GOARCH=amd64 go build -v -o gdown ./cmd/gdown/
           zip --junk-paths gdown_${{ steps.get_version.outputs.VERSION }}_linux-x64.zip gdown
           
       - name: Create Release
